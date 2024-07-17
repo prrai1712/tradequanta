@@ -1,0 +1,107 @@
+<%- include('base') -%>
+
+<div class="container">
+
+    <h4  class="h2"> 
+        <%=  stock_info.name %>
+        <span id="NSE_code" class="badge badge badge-pill badge-info">
+          <%=  stock_info.code %>
+        </span>
+    </h4>
+    
+	<p id="stock_name" hidden> <%= stock_info.name %> </p>
+	<p id="current_price">NA</p>
+
+    <h6 class="h6"> NSE : <b><%=  stock_info.code %></b> |
+      SERIES : <b><%=  stock_info.series %></b> | 
+      ISIN : <b><%=  stock_info.ISIN_number %></b> |
+        FACE VALUE : <b><%=  stock_info.face_value %></b> 
+    </h6>
+    <hr>
+
+
+
+    <div class="d-flex w-100 justify-content-between">
+  
+      <h4 class="mb-1" id="current_price_display"> 
+        &#8377 NA <span class="badge badge-success" id="up_down"> +NA (NA %)</span>
+      </h4>
+
+      <!-- <small>Buy at this price </small> -->
+    
+  
+
+    <!-- <div class="d-flex w-100 justify-content-between"> -->
+          <!-- <h5 class="mb-1"></h5> -->
+        <span > 
+              <form class="form-inline" id="buy_share" action="#" onsubmit="buy_share(); return false;">
+            
+                <div class="form-group mx-sm-2 mb-2" >
+                
+                  <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity" required>
+                  <input type="hidden" id="username" value= <%= username %>  >
+                  <input type="hidden" id="stock_code" value=<%= stock_info.code %> >
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Buy at current price</button>
+            </form>  
+        </span>
+    <!-- </div>  -->
+
+  </div>
+
+    <hr>
+                                                                                                                                          
+
+    <% if(share_list.length == 0){ %>
+      <h3> No shares of this company in your demat account </h3>
+    <% } else { %>
+  
+	<form id="sell_share" onsubmit="sell_share(); return false;">
+      <h3> Your shares
+      <button type="submit" class="btn btn-primary mb-2" >Sell</button>
+	</h3>
+	</form>
+	
+	<ul class="list-group">
+      <%  share_list.forEach( (item) => { %>
+      
+        <li class="list-group-item">
+			<div class="list-group" id="share_lot_info">
+				<!-- <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start"> -->
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">Buy Price : &#8377 <%= item.buy_price %></h5>
+					<small><%= item.buy_date.split('T')[0] %></small>
+				</div>
+				<div class="d-flex w-100 justify-content-between">
+						<h5 class="mb-1"><span class="badge badge-primary">Quantity available : <%= item.quantity %> </span></h5>
+						<span > 
+								
+								<input type="number" class="form-control" placeholder="Enter selling quantity" id=<%= item._id %> >
+						</span>
+				</div> 
+              
+            	<!-- </a> -->
+			</div>
+		
+			</li>
+		
+          
+	   <% }); %>
+	   
+	</ul>
+
+       
+	  <% } %>
+	  
+	  <hr>
+	  <br>
+	  <br>
+	  
+
+</div>
+</body>
+
+
+<script src="/javascripts/share.js"></script>
+
+</html>

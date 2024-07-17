@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Log in</title>
+
+
+</head>
+<body>
+
+  <br>
+  <h1 class="h1" style="text-align:center">TradeQuanta</h1>
+    
+    <div class="center">
+        <marquee scrollamount="3" bgcolor="lightblue"> <h2> NYSE | NASDAQ | JPX | LSE | SSE | SEHK | SZSE | TMX | BSE | NSE | ASX </h2> </marquee>
+        <!-- <h1>Virtual Stock Exchange</h1> -->
+
+ <form action="/auth" method="POST">
+     <div class="txt_field">
+        <input name="username" type="text" required>
+        <span></span>
+        <label>Username</label>
+    </div>
+
+    <div class="txt_field">
+      <input name="password" type="password" required>
+      <span></span>
+      <label>Password</label>
+    </div>
+
+<button id="button" type="submit">Login</button>
+<div class="signup_link">
+<p id="change_form"> <a href="#">Signup</a></p>
+</div>
+</form>
+</div>
+
+
+</body>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<script src="/javascripts/login.js"></script>
+</html>
