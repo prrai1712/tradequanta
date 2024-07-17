@@ -1,4 +1,4 @@
-# Virtual Stock Exchange :ox: :bear:
+# TradeQuanta :ox: :bear:
 > Trade in NSE (national stock exchange) listed companies without putting actual money into the market
 
 ## About it
